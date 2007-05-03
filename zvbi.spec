@@ -1,6 +1,6 @@
 %define name zvbi
 %define version 0.2.25
-%define release %mkrel 1
+%define release %mkrel 2
 %define libname %mklibname %name 0
 
 Name: %{name}
@@ -11,20 +11,15 @@ License: GPL
 Group: Video
 Url: http://zapping.sourceforge.net/
 Source0:    http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
-Source10:  %{name}-16.png
-Source11:  %{name}-32.png
-Source12:  %{name}-48.png
 Patch2: zvbi-0.2.7-fix-build.patch
 Buildroot: %_tmppath/%name-root
 Requires(Pre): /sbin/install-info
 Requires(Post): /sbin/install-info
 BuildRequires:	autoconf2.5 automake1.8
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libpng-devel
-BuildRequires:	libunicode-devel
 BuildRequires:	doxygen
-Requires: libunicode >= 0.4
 Requires: gettext >= 0.10.36
 
 %description
@@ -34,8 +29,6 @@ Non versionated files of zvbi, mainly libzvbi0 translations
 Summary: Raw VBI, Teletext and Closed Caption decoding library
 Group: Video
 %description -n %{libname}
-This library provides routines to
-
 VBI stands for Vertical Blanking Interval, a gap between the image
 data transmitted in an analog video signal. This gap is used to
 transmit AM modulated data for various data services like Teletext and
@@ -80,10 +73,7 @@ library.
 %patch2 -p1 -b .build
 
 %build
-aclocal-1.8 -I m4
-automake-1.8 -a -c
-autoconf
-%configure2_5x
+%configure
 # gtkdoc fix:
 cp /usr/share/gtk-doc/data/gtkdoc-common.pl doc/
 %make
