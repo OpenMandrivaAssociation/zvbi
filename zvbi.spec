@@ -15,7 +15,6 @@ Patch2: zvbi-0.2.7-fix-build.patch
 Buildroot: %_tmppath/%name-root
 Requires(Pre): /sbin/install-info
 Requires(Post): /sbin/install-info
-BuildRequires:	autoconf2.5 automake1.8
 BuildRequires:	X11-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libpng-devel
