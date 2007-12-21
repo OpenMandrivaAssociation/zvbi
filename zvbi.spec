@@ -12,6 +12,7 @@ Group: Video
 Url: http://zapping.sourceforge.net/
 Source0:    http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
 Patch2: zvbi-0.2.7-fix-build.patch
+Buildroot: %_tmppath/%name-root
 Requires(Pre): info-install
 Requires(Post): info-install
 BuildRequires:	X11-devel
