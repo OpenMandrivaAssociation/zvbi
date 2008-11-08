@@ -2,6 +2,7 @@
 %define version 0.2.31
 %define release %mkrel 2
 %define libname %mklibname %name 0
+%define develname %mklibname %name -d
 
 Name: %{name}
 Version: %{version}
@@ -11,6 +12,7 @@ License: GPL
 Group: Video
 Url: http://zapping.sourceforge.net/
 Source0:    http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
+Patch0: zvbi-0.2.31-linkage_fix.diff
 Patch2: zvbi-0.2.7-fix-build.patch
 Buildroot: %_tmppath/%name-root
 Requires(Pre): info-install
@@ -45,30 +47,22 @@ The library is the vbi decoding backbone of the Zapping Gnome TV viewer
 and Zapzilla Teletext browser.
 
 
-%package -n %{libname}-devel                                   
+%package -n %{develname}
 Summary: Header files for developing apps which will use libzvbi
 Group: Development/C
 Requires: %{libname} = %{version}
 Provides: lib%{name}-devel = %{version}-%{release}
 Provides: %{name}-devel
 Obsoletes: %{name}-devel
-%description -n %{libname}-devel
+Obsoletes: %{mklibname zvbi 0 -d}
+
+%description -n %{develname}
 Header files and static library of bzip2 functions, for developing apps which
 will use the zvbi library (aka libzvbi)
 
-
-%package devel
-Summary:	Zvbi library headers files
-Group:		Development/C
-Requires:	%{name} = %{version}
-Requires:	libunicode-devel
-
-%description devel
-Header files and documentation for the support library for the zvbi
-library.
-
 %prep
 %setup -q
+%patch0 -p1 -b .linkage_fix
 %patch2 -p1 -b .build
 
 %build
@@ -106,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING NEWS README
 %_libdir/libzvbi*.so.*
 
-%files -n %{libname}-devel                                     
+%files -n %{develname}
 %defattr(644,root,root,755)
 %doc BUGS ChangeLog COPYING TODO doc/html
 %_libdir/lib*.so
