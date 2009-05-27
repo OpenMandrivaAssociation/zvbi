@@ -66,7 +66,6 @@ will use the zvbi library (aka libzvbi)
 %patch2 -p0 -b .build
 
 %build
-libtoolize --force
 autoreconf -fi
 
 %configure2_5x
