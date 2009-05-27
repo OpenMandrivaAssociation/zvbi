@@ -63,7 +63,7 @@ will use the zvbi library (aka libzvbi)
 %prep
 %setup -q
 %patch0 -p1 -b .linkage_fix
-%patch2 -p1 -b .build
+%patch2 -p0 -b .build
 
 %build
 %configure
