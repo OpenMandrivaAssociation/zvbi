@@ -1,6 +1,6 @@
 %define name zvbi
 %define version 0.2.33
-%define release %mkrel 1
+%define release %mkrel 2
 %define libname %mklibname %name 0
 %define develname %mklibname %name -d
 
@@ -66,6 +66,9 @@ will use the zvbi library (aka libzvbi)
 %patch2 -p0 -b .build
 
 %build
+libtoolize --force
+FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
+
 %configure
 # gtkdoc fix:
 cp /usr/share/gtk-doc/data/gtkdoc-common.pl doc/
