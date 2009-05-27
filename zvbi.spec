@@ -67,9 +67,9 @@ will use the zvbi library (aka libzvbi)
 
 %build
 libtoolize --force
-FORCE_AUTOCONF_2_5=1 AUTOMAKE="automake --add-missing" autoreconf
+autoreconf -fi
 
-%configure
+%configure2_5x
 # gtkdoc fix:
 cp /usr/share/gtk-doc/data/gtkdoc-common.pl doc/
 %make
