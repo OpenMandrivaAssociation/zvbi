@@ -1,6 +1,6 @@
 %define name zvbi
 %define version 0.2.33
-%define release %mkrel 3
+%define release %mkrel 4
 %define libname %mklibname %name 0
 %define develname %mklibname %name -d
 
