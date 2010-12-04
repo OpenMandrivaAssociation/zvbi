@@ -14,13 +14,15 @@ Url: http://zapping.sourceforge.net/
 Source0:    http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
 Patch0: zvbi-0.2.31-linkage_fix.diff
 Patch2: zvbi-0.2.7-fix-build.patch
+Patch3: zvbi-0.2.33-include_stat_h.patch
 Buildroot: %_tmppath/%name-root
 Requires(Pre): info-install
 Requires(Post): info-install
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libpng-devel
 BuildRequires:	doxygen
+BuildRequires:	gettext-devel
 Requires: gettext >= 0.10.36
 
 %description
@@ -64,6 +66,7 @@ will use the zvbi library (aka libzvbi)
 %setup -q
 %patch0 -p1 -b .linkage_fix
 %patch2 -p0 -b .build
+%patch3 -p1 -b .stat
 
 %build
 autoreconf -fi
