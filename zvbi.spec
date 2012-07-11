@@ -1,12 +1,9 @@
-%define name zvbi
-%define version 0.2.33
-%define release %mkrel 6
 %define libname %mklibname %name 0
 %define develname %mklibname %name -d
 
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name: zvbi
+Version: 0.2.33
+Release: 7
 Summary: Raw VBI, Teletext and Closed Caption decoding library
 License: GPL
 Group: Video
@@ -15,9 +12,7 @@ Source0:    http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
 Patch0: zvbi-0.2.31-linkage_fix.diff
 Patch2: zvbi-0.2.7-fix-build.patch
 Patch3: zvbi-0.2.33-include_stat_h.patch
-Buildroot: %_tmppath/%name-root
-Requires(Pre): info-install
-Requires(Post): info-install
+Patch4: zvbi-0.2.33-libpng15.patch
 BuildRequires:	libx11-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libpng-devel
@@ -67,6 +62,7 @@ will use the zvbi library (aka libzvbi)
 %patch0 -p1 -b .linkage_fix
 %patch2 -p0 -b .build
 %patch3 -p1 -b .stat
+%patch4 -p1 -b .libpng15~
 
 %build
 autoreconf -fi
@@ -109,7 +105,6 @@ rm -rf %{buildroot}
 %defattr(644,root,root,755)
 %doc BUGS ChangeLog COPYING TODO doc/html
 %_libdir/lib*.so
-%_libdir/lib*.la
 %_libdir/lib*.a
 %_libdir/pkgconfig/*
 %_includedir/libzvbi.h
