@@ -1,0 +1,16 @@
+--- zvbi-0.2.33/src/exp-gfx.c.bero	2012-07-11 13:27:20.243806412 +0200
++++ zvbi-0.2.33/src/exp-gfx.c	2012-07-11 13:27:41.301518971 +0200
+@@ -1672,11 +1672,11 @@ write_png			(gfx_instance *		gfx,
+ 	char title[80];
+ 	unsigned int i;
+ 
+-	if (setjmp (png_ptr->jmpbuf))
++	if (setjmp (png_jmpbuf(png_ptr)))
+ 		return FALSE;
+ 
+ 	png_set_write_fn (png_ptr,
+-			  (voidp) gfx,
++			  (void*) gfx,
+ 			  write_data,
+ 			  flush_data);
+ 
