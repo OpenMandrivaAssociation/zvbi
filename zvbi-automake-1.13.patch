@@ -1,0 +1,11 @@
+--- zvbi-0.2.33/configure.in.bero	2013-01-16 04:17:27.397571833 +0100
++++ zvbi-0.2.33/configure.in	2013-01-16 04:17:33.156503389 +0100
+@@ -5,7 +5,7 @@ AC_INIT(zvbi, 0.2.33)
+ AC_CONFIG_SRCDIR(src/vbi.c)
+ 
+ AM_INIT_AUTOMAKE([1.9 check-news dist-bzip2])
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ dnl AM_ACLOCAL_INCLUDE(macrodir)
+ AC_DEFUN([AM_ACLOCAL_INCLUDE],

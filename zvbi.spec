@@ -10,6 +10,7 @@ Group:		Video
 Url:		http://zapping.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
 Patch0:		zvbi-0.2.31-linkage_fix.diff
+Patch1:		zvbi-automake-1.13.patch
 Patch2:		zvbi-0.2.7-fix-build.patch
 Patch3:		zvbi-0.2.33-include_stat_h.patch
 Patch4:		zvbi-0.2.33-libpng15.patch
@@ -61,6 +62,7 @@ will use the zvbi library (aka libzvbi)
 %patch2 -p0 -b .build
 %patch3 -p1 -b .stat
 %patch4 -p1 -b .libpng15~
+%patch1 -p1 -b .am113~
 
 %build
 autoreconf -fi
