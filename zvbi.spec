@@ -3,7 +3,7 @@
 
 Name:		zvbi
 Version:	0.2.33
-Release:	8
+Release:	9
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
 License:	GPL
 Group:		Video
