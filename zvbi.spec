@@ -75,6 +75,7 @@ cp /usr/share/gtk-doc/data/gtkdoc-common.pl doc/
 %install
 %makeinstall_std
 %find_lang %{name}
+find %{buildroot} -name *.a | xargs rm -f
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
