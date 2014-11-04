@@ -1,2 +1,4 @@
+removed_sources:
+  zvbi-0.2.33.tar.bz2: 0e32cb71357dc629305dd15027bc76533fcb69a3
 sources:
-  "zvbi-0.2.33.tar.bz2": 0e32cb71357dc629305dd15027bc76533fcb69a3
+  zvbi-0.2.35.tar.bz2: b0fc8d596c90d603e883e6b195318c6b276a3eb4
