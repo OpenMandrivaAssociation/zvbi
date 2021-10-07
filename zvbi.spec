@@ -62,14 +62,11 @@ will use the zvbi library (aka libzvbi)
 
 %build
 autoreconf -fi
-
-%configure2_5x
-# gtkdoc fix:
-cp /usr/share/gtk-doc/data/gtkdoc-common.pl doc/
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name}
 find %{buildroot} -name *.a | xargs rm -f
 
