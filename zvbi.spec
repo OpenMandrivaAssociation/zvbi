@@ -2,16 +2,17 @@
 %define develname %mklibname %{name} -d
 
 Name:		zvbi
-Version:	0.2.35
-Release:	8
+Version:	0.2.41
+Release:	1
 Summary:	Raw VBI, Teletext and Closed Caption decoding library
 License:	GPL
 Group:		Video
 Url:		http://zapping.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
-Patch0:		zvbi-0.2.31-linkage_fix.diff
-Patch1:		zvbi-automake-1.13.patch
-Patch2:		zvbi-0.2.7-fix-build.patch
+https://github.com/zapping-vbi/zvbi/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz  
+#Source0:	http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
+#Patch0:		zvbi-0.2.31-linkage_fix.diff
+#Patch1:		zvbi-automake-1.13.patch
+#Patch2:		zvbi-0.2.7-fix-build.patch
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(libpng)
@@ -56,9 +57,7 @@ will use the zvbi library (aka libzvbi)
 
 %prep
 %setup -q
-%patch0 -p1 -b .linkage_fix
-%patch2 -p0 -b .build
-%patch1 -p1 -b .am113~
+
 
 %build
 autoreconf -fi
