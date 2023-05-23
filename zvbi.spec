@@ -8,7 +8,7 @@ Summary:	Raw VBI, Teletext and Closed Caption decoding library
 License:	GPL
 Group:		Video
 Url:		http://zapping.sourceforge.net/
-Source0:	https://github.com/zapping-vbi/zvbi/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz  
+Source0:	https://github.com/zapping-vbi/zvbi/archive/refs/tags/v%{version}/%{name}-%{version}.tar.xz 
 #Source0:	http://prdownloads.sourceforge.net/zapping/%name-%version.tar.bz2
 #Patch0:		zvbi-0.2.31-linkage_fix.diff
 #Patch1:		zvbi-automake-1.13.patch
